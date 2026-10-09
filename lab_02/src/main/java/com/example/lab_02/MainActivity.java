@@ -32,17 +32,17 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume(){
         super.onResume();
-        Log.e("Seminar","OnStart");
+        Log.w("Seminar","OnResume");
     }
     @Override
     protected void onPause(){
         super.onPause();
-        Log.e("Seminar","OnStart");
+        Log.d("Seminar","OnPause");
     }
     @Override
     protected void onStop(){
         super.onStop();
-        Log.e("Seminar","OnStop");
+        Log.v("Seminar","OnStop");
     }
 
 

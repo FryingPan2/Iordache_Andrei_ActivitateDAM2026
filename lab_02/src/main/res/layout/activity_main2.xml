@@ -8,11 +8,20 @@
     tools:context=".MainActivity2">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnDeschide"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:text="Deschide activitatea 3"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="160dp"
+        tools:layout_editor_absoluteX="111dp"
         tools:layout_editor_absoluteY="341dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="activitate 2"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="175dp"
+        tools:layout_editor_absoluteY="305dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
