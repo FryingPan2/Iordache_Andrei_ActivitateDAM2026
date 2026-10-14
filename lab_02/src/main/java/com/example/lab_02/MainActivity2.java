@@ -25,7 +25,7 @@ public class MainActivity2 extends AppCompatActivity {
         });
     }
     public void openActivity(View view){
-       Intent it = new Intent(MainActivity2.this,ActivitateRezultat.class);
+       Intent it = new Intent(this,ActivitateRezultat.class);
 
         Bundle bundle = new Bundle();
         bundle.putString("mesaj", "Salut din MainActivity2!");
@@ -34,8 +34,8 @@ public class MainActivity2 extends AppCompatActivity {
 
         it.putExtras(bundle);
 
-        startActivityForResult(it, REQUEST_REZULTAT);
-       //startActivity(it);
+        startActivityForResult(it,70);
+        //startActivity(it);
     }
 
     @Override
@@ -43,16 +43,18 @@ public class MainActivity2 extends AppCompatActivity {
                                     Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == REQUEST_REZULTAT
-                && resultCode == RESULT_OK && data != null) {
+        if (requestCode == 70){
+                if(resultCode == RESULT_OK) {
 
-            String mesaj = data.getStringExtra("mesaj_retur");
+            String mesaj = data.getStringExtra("mesaj_return");
             int suma = data.getIntExtra("suma", 0);
+            StringBuilder build = new StringBuilder(mesaj);
+            build.append(suma);
 
             Toast.makeText(this,
-                    mesaj + " Suma este: " + suma,
-                    Toast.LENGTH_LONG).show();
+                    build.toString(),
+                    Toast.LENGTH_SHORT).show();
         }
-    }
-}
+        }
+}}
 

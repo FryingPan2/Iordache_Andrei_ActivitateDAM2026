@@ -5,7 +5,11 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 
 public class ActivitateRezultat extends AppCompatActivity {
 
@@ -13,41 +17,49 @@ public class ActivitateRezultat extends AppCompatActivity {
     private int numar1;
     private int numar2;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_rezultat);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
 
-        Bundle bundle = getIntent().getExtras();
+
+        Intent it = getIntent();
+        Bundle bundle = it.getExtras();
 
         if (bundle != null) {
-            mesaj = bundle.getString("mesaj", "");
-            numar1 = bundle.getInt("numar1", 0);
-            numar2 = bundle.getInt("numar2", 0);
+            this.mesaj = bundle.getString("mesaj", "");
+            this.numar1 = bundle.getInt("numar1", 0);
+            this.numar2 = bundle.getInt("numar2", 0);
         } else {
-            mesaj = "";
-            numar1 = 0;
-            numar2 = 0;
+            this.mesaj = "";
+            this.numar1 = 0;
+            this.numar2 = 0;
         }
+        StringBuilder builder = new StringBuilder(this.mesaj);
+        builder.append(" Numerele primite sunt: ");
+        builder.append(this.numar1);
+        builder.append(" si ");
+        builder.append(this.numar2);
+        Toast.makeText(this, builder.toString(),
+                Toast.LENGTH_SHORT).show();
 
-        Toast.makeText(this,
-                mesaj + " Numerele primite sunt: "
-                        + numar1 + " si " + numar2,
-                Toast.LENGTH_LONG).show();
-
-        Button btnTrimite = findViewById(R.id.btnTrimite);
-
-        btnTrimite.setOnClickListener(v -> trimiteRezultat());
     }
-
-    private void trimiteRezultat() {
-        int suma = numar1 + numar2;
+    public void trimiteRezultat() {
+        String newMesaj = "Rezultatul a fost calculat!";
+        int suma = this.numar1 + this.numar2;
 
         Intent intent = new Intent();
-        intent.putExtra("mesaj_retur",
-                "Rezultatul a fost calculat!");
+        intent.putExtra("mesaj_return",
+                newMesaj);
         intent.putExtra("suma", suma);
-
         setResult(RESULT_OK, intent);
         finish();
     }
