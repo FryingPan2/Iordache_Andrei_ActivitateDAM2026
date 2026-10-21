@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">lab_04</string>
+    <string name="apasa">Apasa</string>
+    <string name="introduce_numele">Introduce numele</string>
+    <string name="esti_student">Esti student</string>
+    <string name="introdu_avion">Introdu Avion</string>
+    <string name="model">Model</string>
+    <string name="introdu_model">Introdu model</string>
+</resources>
