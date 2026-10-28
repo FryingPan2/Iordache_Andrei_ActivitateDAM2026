@@ -26,9 +26,14 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+
+
+
     public void deschideCulesDateAvion(View view) {
-        //Intent it = new Intent(this,)
+        Intent it = new Intent(this, IntroduAvion.class);
+        startActivity(it);
     }
+
 
 
     public void culegeDate(View view) {

@@ -56,4 +56,15 @@ public class Avion{
     public void setValue(Float value) {
         Value = value;
     }
+
+    @Override
+    public String toString() {
+        return "Avion{" +
+                "Model='" + Model + '\'' +
+                ", Id='" + Id + '\'' +
+                ", Manufacturer='" + Manufacturer + '\'' +
+                ", FlightHours=" + FlightHours +
+                ", Value=" + Value +
+                '}';
+    }
 }
