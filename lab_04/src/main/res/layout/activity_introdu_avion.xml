@@ -38,10 +38,67 @@
         android:layout_height="wrap_content"
         android:hint="Input the airplanes value"
         android:inputType="number"/>
-    <Button
-        android:id="@+id/buton_avion"
+    <CheckBox
+        android:id="@+id/disponibil_avion_CB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Avion disponibil" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tip avion:" />
+
+    <RadioGroup
+        android:id="@+id/tip_avion_RG"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:id="@+id/pasageri_RB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pasageri" />
+
+        <RadioButton
+            android:id="@+id/cargo_RB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cargo" />
+
+    </RadioGroup>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Categoria avionului:" />
+
+    <Spinner
+        android:id="@+id/categorie_avion_SP"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Input Data"/>
+        android:entries="@array/categorii_avion" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Starea tehnica a avionului:" />
+
+    <RatingBar
+        android:id="@+id/stare_avion_RB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:stepSize="1"
+        android:rating="3" />
+    <Switch
+        android:id="@+id/in_serviciu_SW"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Avionul este in serviciu"
+        android:checked="true" />
+    <Button
+        android:id="@+id/buton_avion2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save"/>
 
 </LinearLayout>

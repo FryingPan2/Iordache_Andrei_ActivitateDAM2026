@@ -6,4 +6,10 @@
     <string name="introdu_avion">Introdu Avion</string>
     <string name="model">Model</string>
     <string name="introdu_model">Introdu model</string>
+    <string-array name="categorii_avion">
+        <item>Comercial</item>
+        <item>Privat</item>
+        <item>Militar</item>
+        <item>Transport</item>
+    </string-array>
 </resources>

@@ -8,21 +8,17 @@
     android:orientation="vertical"
     tools:context=".MainActivity2">
 
-    <LinearLayout
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:text="Lista avioanelor"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:paddingBottom="12dp" />
 
-        <TextView
-            android:layout_height="match_parent"
-            android:layout_width="wrap_content"
-            android:text="@string/model"/>
-
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:hint="@string/introdu_model"/>
-
-        </LinearLayout>
+    <ListView
+        android:id="@+id/lista_avioane_LV"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </LinearLayout>

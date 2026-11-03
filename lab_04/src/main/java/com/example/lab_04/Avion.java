@@ -1,11 +1,18 @@
 package com.example.lab_04;
-public class Avion{
+import java.io.Serializable;
+public class Avion implements Serializable{
 
     String Model;
     String Id;
     String Manufacturer;
     Integer FlightHours;
     Float Value;
+
+    private boolean disponibil;
+    private String tipAvion;
+    private String categorie;
+    private float stareTehnica;
+    private boolean inServiciu;
     public Avion() {
     }
 
@@ -16,7 +23,63 @@ public class Avion{
         FlightHours = flightHours;
         Value = value;
     }
+    public Avion(String model, String id, String manufacturer,
+                 Integer flightHours, Float value,
+                 boolean disponibil, String tipAvion,
+                 String categorie, float stareTehnica,
+                 boolean inServiciu) {
 
+        this.Model = model;
+        this.Id = id;
+        this.Manufacturer = manufacturer;
+        this.FlightHours = flightHours;
+        this.Value = value;
+
+        this.disponibil = disponibil;
+        this.tipAvion = tipAvion;
+        this.categorie = categorie;
+        this.stareTehnica = stareTehnica;
+        this.inServiciu = inServiciu;
+    }
+    public boolean isDisponibil() {
+        return disponibil;
+    }
+
+    public void setDisponibil(boolean disponibil) {
+        this.disponibil = disponibil;
+    }
+
+    public String getTipAvion() {
+        return tipAvion;
+    }
+
+    public void setTipAvion(String tipAvion) {
+        this.tipAvion = tipAvion;
+    }
+
+    public String getCategorie() {
+        return categorie;
+    }
+
+    public void setCategorie(String categorie) {
+        this.categorie = categorie;
+    }
+
+    public float getStareTehnica() {
+        return stareTehnica;
+    }
+
+    public void setStareTehnica(float stareTehnica) {
+        this.stareTehnica = stareTehnica;
+    }
+
+    public boolean isInServiciu() {
+        return inServiciu;
+    }
+
+    public void setInServiciu(boolean inServiciu) {
+        this.inServiciu = inServiciu;
+    }
     public String getModel() {
         return Model;
     }
@@ -59,12 +122,15 @@ public class Avion{
 
     @Override
     public String toString() {
-        return "Avion{" +
-                "Model='" + Model + '\'' +
-                ", Id='" + Id + '\'' +
-                ", Manufacturer='" + Manufacturer + '\'' +
-                ", FlightHours=" + FlightHours +
-                ", Value=" + Value +
-                '}';
+        return "Model: " + Model +
+                "\nID: " + Id +
+                "\nProducator: " + Manufacturer +
+                "\nOre de zbor: " + FlightHours +
+                "\nValoare: " + Value +
+                "\nDisponibil: " + disponibil +
+                "\nTip avion: " + tipAvion +
+                "\nCategorie: " + categorie +
+                "\nStare tehnica: " + stareTehnica + "/5" +
+                "\nIn serviciu: " + inServiciu;
     }
 }

@@ -30,20 +30,23 @@
         />
 
     <Button
+        android:id="@+id/buton_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/apasa"
-        android:onClick="culegeDate"
         />
 
     <Button
+        android:id="@+id/buton_avion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/introdu_avion"
-        android:onClick="deschideCulesDateAvion"/>
+        />
 
-    <ListView
+    <Button
+        android:id="@+id/buton_lista"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="Afiseaza lista"/>
 
 </LinearLayout>
