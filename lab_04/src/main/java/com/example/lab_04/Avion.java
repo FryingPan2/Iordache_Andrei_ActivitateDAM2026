@@ -1,6 +1,9 @@
 package com.example.lab_04;
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.io.Serializable;
-public class Avion implements Serializable{
+public class Avion implements Parcelable {
 
     String Model;
     String Id;
@@ -41,6 +44,69 @@ public class Avion implements Serializable{
         this.stareTehnica = stareTehnica;
         this.inServiciu = inServiciu;
     }
+
+    protected Avion(Parcel in) {
+        Model = in.readString();
+        Id = in.readString();
+        Manufacturer = in.readString();
+        if (in.readByte() == 0) {
+            FlightHours = null;
+        } else {
+            FlightHours = in.readInt();
+        }
+        if (in.readByte() == 0) {
+            Value = null;
+        } else {
+            Value = in.readFloat();
+        }
+        disponibil = in.readByte() != 0;
+        tipAvion = in.readString();
+        categorie = in.readString();
+        stareTehnica = in.readFloat();
+        inServiciu = in.readByte() != 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(Model);
+        dest.writeString(Id);
+        dest.writeString(Manufacturer);
+        if (FlightHours == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(FlightHours);
+        }
+        if (Value == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeFloat(Value);
+        }
+        dest.writeByte((byte) (disponibil ? 1 : 0));
+        dest.writeString(tipAvion);
+        dest.writeString(categorie);
+        dest.writeFloat(stareTehnica);
+        dest.writeByte((byte) (inServiciu ? 1 : 0));
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<Avion> CREATOR = new Creator<Avion>() {
+        @Override
+        public Avion createFromParcel(Parcel in) {
+            return new Avion(in);
+        }
+
+        @Override
+        public Avion[] newArray(int size) {
+            return new Avion[size];
+        }
+    };
+
     public boolean isDisponibil() {
         return disponibil;
     }
