@@ -1,5 +1,6 @@
 package com.example.lab_04;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -18,7 +19,7 @@ public class MainActivity2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        ArrayAdapter<Avion> adapter;
+        //ArrayAdapter<Avion> adapter;
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main2);
@@ -30,9 +31,9 @@ public class MainActivity2 extends AppCompatActivity {
 
             return insets;
         });
-        listaAvioane = (ArrayList<Avion>)
-        getIntent().getSerializableExtra("listaAvioane");
-
+//        listaAvioane = (ArrayList<Avion>)
+//        getIntent().getSerializableExtra("listaAvioane");
+        listaAvioane = getIntent().getParcelableArrayListExtra("listaAvioane");
         if (listaAvioane == null) {
             listaAvioane = new ArrayList<>();
         }
@@ -41,23 +42,34 @@ public class MainActivity2 extends AppCompatActivity {
 
         ListView listView = findViewById(R.id.lista_avioane_LV);
 
-        adapter = new ArrayAdapter<>(
-                this,
-                android.R.layout.simple_list_item_1,
-                lista
-        );
-
+        //adapter = new ArrayAdapter<>(
+        //       this,
+        //      android.R.layout.simple_list_item_1,
+        //       lista
+        //);
+        AvionAdapter adapter = new AvionAdapter(listaAvioane,this);
         listView.setAdapter(adapter);
 
         // Tap: display the selected aircraft
+//        listView.setOnItemClickListener((parent, view, position, id) -> {
+//            Avion avion = lista.get(position);
+//
+//            Toast.makeText(
+//                    MainActivity2.this,
+//                    avion.toString(),
+//                    Toast.LENGTH_LONG
+//            ).show();
+//        });
         listView.setOnItemClickListener((parent, view, position, id) -> {
+
             Avion avion = lista.get(position);
 
-            Toast.makeText(
-                    MainActivity2.this,
-                    avion.toString(),
-                    Toast.LENGTH_LONG
-            ).show();
+            Intent it = new Intent(MainActivity2.this, IntroduAvion.class);
+
+            it.putExtra("avion_selectat", avion);
+            it.putExtra("pozitie_avion", position);
+
+            startActivityForResult(it, 2);
         });
 
         // Long press: delete the selected aircraft
@@ -74,5 +86,39 @@ public class MainActivity2 extends AppCompatActivity {
 
             return true;
         });
+    }
+    @Override
+    protected void onActivityResult(
+            int requestCode,
+            int resultCode,
+            Intent data) {
+
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == 2 && resultCode == RESULT_OK && data != null) {
+
+            Avion avionModificat =
+                    data.getParcelableExtra("avion");
+
+            int pozitie =
+                    data.getIntExtra("pozitie_avion", -1);
+
+            if (avionModificat != null && pozitie >= 0
+                    && pozitie < listaAvioane.size()) {
+
+                listaAvioane.set(pozitie, avionModificat);
+
+                ((AvionAdapter)
+                        ((ListView)findViewById(R.id.lista_avioane_LV))
+                                .getAdapter())
+                        .notifyDataSetChanged();
+
+                Toast.makeText(
+                        this,
+                        "Avion modificat cu succes!",
+                        Toast.LENGTH_SHORT
+                ).show();
+            }
+        }
     }
 }

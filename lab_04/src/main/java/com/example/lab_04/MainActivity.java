@@ -96,9 +96,9 @@ public class MainActivity extends AppCompatActivity {
 
         if (requestCode == 1 && resultCode == RESULT_OK) {
 
-            Avion avion = (Avion)
-                    data.getSerializableExtra("avion");
-
+            //Avion avion = (Avion)
+                    //data.getSerializableExtra("avion");
+            Avion avion = data.getParcelableExtra("avion");
             if (avion != null) {
                 listaAvioane.add(avion);
 
