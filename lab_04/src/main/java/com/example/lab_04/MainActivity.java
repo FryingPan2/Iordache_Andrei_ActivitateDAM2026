@@ -55,6 +55,16 @@ public class MainActivity extends AppCompatActivity {
             startActivity(it);
         });
 
+        Button btnRetea = findViewById(R.id.btn_retea);
+
+        btnRetea.setOnClickListener(view ->{
+
+            Intent it = new Intent(MainActivity.this, ReteaActivity.class);
+            startActivity(it);
+
+        });
+
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
