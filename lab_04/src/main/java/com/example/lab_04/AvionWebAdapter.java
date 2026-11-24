@@ -13,14 +13,12 @@ import java.util.List;
 
 public class AvionWebAdapter extends BaseAdapter {
 
-    private List<ImagesDomain> avioneWeb = null;
+    private List<ImagesDomain> avioneWeb;
     private Context ctx;
-    private int resursaLayout;
 
     public AvionWebAdapter(List<ImagesDomain> avioneWeb, Context ctx) {
         this.avioneWeb = avioneWeb;
         this.ctx = ctx;
-        //this.resursaLayout = resursaLayout;
     }
 
     @Override
@@ -35,7 +33,7 @@ public class AvionWebAdapter extends BaseAdapter {
 
     @Override
     public long getItemId(int position) {
-        return 0;
+        return position;
     }
 
     @Override
@@ -51,9 +49,14 @@ public class AvionWebAdapter extends BaseAdapter {
         Img1.setImageBitmap(av.getImage());
         txt.setText(av.getTextAfisat());
 
-        View.OnClickListener listener = vw ->{
-            Intent it = new Intent(ctx,)
-        }
+        v.setOnClickListener(vw -> {
+
+            Intent it = new Intent(ctx, WebViewActivity.class);
+
+            it.putExtra("link", av.getLink());
+
+            ctx.startActivity(it);
+        });
         return v;
     }
 }

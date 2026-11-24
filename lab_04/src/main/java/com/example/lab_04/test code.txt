@@ -1,0 +1,31 @@
+ executor.execute(new Runnable() {
+            @Override
+            public void run() {
+                for(String link:Links){
+                    HttpsURLConnection con = null;
+                    try{
+                        URL url = new URL(link);
+                        con = (HttpsURLConnection) url.openConnection();
+                        InputStream is = con.getInputStream();
+                        listImages.add(BitmapFactory.decodeStream(is));
+
+                    } catch (MalformedURLException e) {
+                        throw new RuntimeException(e);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+            }
+        });
+
+        handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        lista = new ArrayList<>();
+                        lista.add(new ImagesDomain("Boeing 717", listImages.get(0),"https://en.wikipedia.org/wiki/Boeing_717"));
+                        lista.add(new ImagesDomain("Antonov An-148", listImages.get(1),"https://en.wikipedia.org/wiki/Antonov_An-148"));
+                        lista.add(new ImagesDomain("Bombardier CRJ100/200", listImages.get(2),"https://en.wikipedia.org/wiki/Bombardier_CRJ100/200"));
+                        lista.add(new ImagesDomain("Airbus A220", listImages.get(3),"https://en.wikipedia.org/wiki/Airbus_A220"));
+                        lista.add(new ImagesDomain("Boeing 787 Dreamliner", listImages.get(4),"https://en.wikipedia.org/wiki/Boeing_787_Dreamliner"));
+                    }
+                });
