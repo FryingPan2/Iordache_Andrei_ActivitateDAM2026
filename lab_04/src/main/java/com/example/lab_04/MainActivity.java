@@ -64,6 +64,12 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
+        Button btnWeather = findViewById(R.id.btn_weatherJson);
+
+        btnWeather.setOnClickListener(view ->{
+            Intent it = new Intent(MainActivity.this, JsonWeatherActivity.class);
+            startActivity(it);
+        });
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());

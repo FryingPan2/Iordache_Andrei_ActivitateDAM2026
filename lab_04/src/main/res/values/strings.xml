@@ -6,6 +6,23 @@
     <string name="introdu_avion">Introdu Avion</string>
     <string name="model">Model</string>
     <string name="introdu_model">Introdu model</string>
+    <string name="input_the_airplanes_value">Input the airplanes value</string>
+    <string name="input_the_airplanes_flight_hours">Input the airplanes flight hours</string>
+    <string name="input_the_airplane_manufacturer">Input the airplane manufacturer</string>
+    <string name="input_the_id_of_the_airplane">Input the ID of the airplane</string>
+    <string name="input_model_of_airplane">Input model of airplane</string>
+    <string name="avion_disponibil">Avion disponibil</string>
+    <string name="tip_avion">Tip avion:</string>
+    <string name="categoria_avionului">Categoria avionului:</string>
+    <string name="starea_tehnica_a_avionului">Starea tehnica a avionului:</string>
+    <string name="avionul_este_in_serviciu">Avionul este in serviciu</string>
+    <string name="save">Save</string>
+    <string name="weather">Weather</string>
+    <string name="test_retea">Test Retea</string>
+    <string name="afiseaza_lista">Afiseaza lista</string>
+    <string name="oras">Oras:</string>
+    <string name="afiseaza_oras">Afiseaza Oras</string>
+    <string name="introdu_oras">Introdu Oras</string>
     <string-array name="categorii_avion">
         <item>Comercial</item>
         <item>Privat</item>

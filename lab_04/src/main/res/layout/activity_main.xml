@@ -47,12 +47,18 @@
         android:id="@+id/buton_lista"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Afiseaza lista"/>
+        android:text="@string/afiseaza_lista"/>
 
     <Button
         android:id="@+id/btn_retea"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Test Retea" />
+        android:text="@string/test_retea" />
+
+    <Button
+        android:id="@+id/btn_weatherJson"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/weather" />
 
 </LinearLayout>

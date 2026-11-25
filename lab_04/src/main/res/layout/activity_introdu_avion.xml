@@ -12,41 +12,41 @@
         android:id="@+id/model_avion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Input model of airplane"
+        android:hint="@string/input_model_of_airplane"
         android:inputType="text"/>
     <EditText
         android:id="@+id/id_avion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Input the ID of the airplane"
+        android:hint="@string/input_the_id_of_the_airplane"
         android:inputType="text"/>
     <EditText
         android:id="@+id/manufacturer_avion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Input the airplane manufacturer"
+        android:hint="@string/input_the_airplane_manufacturer"
         android:inputType="text"/>
     <EditText
         android:id="@+id/flightHours_avion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Input the airplanes flight hours"
+        android:hint="@string/input_the_airplanes_flight_hours"
         android:inputType="number"/>
     <EditText
         android:id="@+id/value_avion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Input the airplanes value"
+        android:hint="@string/input_the_airplanes_value"
         android:inputType="number"/>
     <CheckBox
         android:id="@+id/disponibil_avion_CB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Avion disponibil" />
+        android:text="@string/avion_disponibil" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tip avion:" />
+        android:text="@string/tip_avion" />
 
     <RadioGroup
         android:id="@+id/tip_avion_RG"
@@ -70,7 +70,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Categoria avionului:" />
+        android:text="@string/categoria_avionului" />
 
     <Spinner
         android:id="@+id/categorie_avion_SP"
@@ -80,7 +80,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Starea tehnica a avionului:" />
+        android:text="@string/starea_tehnica_a_avionului" />
 
     <RatingBar
         android:id="@+id/stare_avion_RB"
@@ -93,12 +93,12 @@
         android:id="@+id/in_serviciu_SW"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Avionul este in serviciu"
+        android:text="@string/avionul_este_in_serviciu"
         android:checked="true" />
     <Button
         android:id="@+id/buton_avion2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Save"/>
+        android:text="@string/save"/>
 
 </LinearLayout>
